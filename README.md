@@ -26,3 +26,6 @@ could come out 32-bit (x86) DLL to link with Laview. After survey , we find that
 Please refer to below link . 
 https://jason-chen-1992.weebly.com/home/install-visual-studio-2017-with-opencv-on-win10
 
+-----------------------------------------------------------------------------------------------------------------------------
+3. API developing : 
+
