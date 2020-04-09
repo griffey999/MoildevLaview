@@ -3,8 +3,7 @@ MoildevLaview
 
 MoilDev and Laview description
 
-    MoilDev is a collection of functions support c++ developments for fisheye image applications, tested both on 
-ubuntu 18.04 and Raspberry Pi( Raspbian Buster ), gcc/g++ and OpenCV are required in the development. 
+    MoilDev is a collection of functions support c++ developments for fisheye image applications, tested both on ubuntu 18.04 and Raspberry Pi( Raspbian Buster ), gcc/g++ and OpenCV are required in the development. 
     Laview is a system-design platform and development environment for a visual programming language from National Instruments.LabVIEW is commonly used for data acquisition, instrument control, and industrial automation on a 
 variety of operating systems (OSs), including Microsoft Windows, various versions of Unix, Linux, and macOS.
     How to implemnt MoilDev's on Laview system is a big problem. This description will introduce some tricks to 
