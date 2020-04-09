@@ -2,6 +2,7 @@ MoildevLaview
 ============================================================================================================================
 
 MoilDev and Laview description
+---------------------------------------------------------------------------------------------------------------------------
 
     MoilDev is a collection of functions support c++ developments for fisheye image applications, tested both on ubuntu 18.04 and Raspberry Pi( Raspbian Buster ), gcc/g++ and OpenCV are required in the development.
     Laview is a system-design platform and development environment for a visual programming language from National Instruments.LabVIEW is commonly used for data acquisition, instrument control, and industrial automation on a variety of operating systems (OSs), including Microsoft Windows, various versions of Unix, Linux, and macOS.
@@ -18,5 +19,10 @@ are supported for 32-bit driver, 64-bit is few.
 ```
 Visual studio and opencv:
     In order ro develop with Laview 32-bit version, we need to install visual studio c++ package and opencv which 
-could come out 32-bit (x86) DLL to link with Laview. After survey , we find that the visual studio could be 2015 and opencv is 2.6.14
+could come out 32-bit (x86) DLL to link with Laview. After survey , we find that the visual studio could be 2017 and opencv is ver2.4.13.6 . 
 ```
+-----------------------------------------------------------------------------------------------------------------------------
+2. Visual studio c++ and opencv installation.
+Please refer to below link . 
+https://jason-chen-1992.weebly.com/home/install-visual-studio-2017-with-opencv-on-win10
+
