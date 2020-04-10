@@ -13,9 +13,9 @@ How to implemnt MoilDev's on Laview system is a big problem. This description wi
 -----------------------------------------------------------------------------------------------------------------------------
 1. Development environment
 
-1.1 Laview : For general compatible for future developing , we choose 32-bit version because most device drivers are supported for 32-bit, 64-bit is few. 
+*1.1 Laview : For general compatible for future developing , we choose 32-bit version because most device drivers are supported for 32-bit, 64-bit is few. 
 
-1.2 Visual studio and opencv: In order ro develop with Laview 32-bit version, we need to install visual studio c++ package and opencv which could come out 32-bit (x86) DLL to link with Laview. After survey , the visual studio could be 2017 and opencv is ver2.4.13.6 . 
+*1.2 Visual studio and opencv: In order ro develop with Laview 32-bit version, we need to install visual studio c++ package and opencv which could come out 32-bit (x86) DLL to link with Laview. After survey , the visual studio could be 2017 and opencv is ver2.4.13.6 . 
 
 -----------------------------------------------------------------------------------------------------------------------------
 2. Visual studio c++ and opencv installation.
@@ -30,7 +30,7 @@ We want to use Laview to pass a fisheye image to MoilDev and get a panoramr imag
 1. The dll function need to be simple and meet Laview's library calling format.
 2. The dll function need to complete all the panorama actions of MoilDev. 
 
------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------
 The code in dll.h
 ```
 #pragma once
