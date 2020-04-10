@@ -26,10 +26,10 @@ https://jason-chen-1992.weebly.com/home/install-visual-studio-2017-with-opencv-o
 -----------------------------------------------------------------------------------------------------------------------------
 3. Visual studio DLL developing: 
 
-To communicate between MoilDev and Laview is our target. Providing MoilDev's DLL to Laview a simple way to achieve this goal. But Laview is a graphic software package and is not easy to operate MoilDev's dll to implement our target. It means we need to develop a simple API (dll)which could achieve two conditions: 
+We want to use Laview to pass a fisheye image to MoilDev and get a panoramr image back. Providing MoilDev's DLL to Laview a simple way to achieve this goal. But Laview is a graphic software package and is not easy to operate MoilDev's dll to implement reach our goal. It means we need to develop a simple API (dll)which could achieve two conditions: 
 1. The dll function need to meet Laview's library calling format.
-2. The dll function need to complete all the panorama actions. 
-So let's go . 
+2. The dll function need to complete all the panorama actions of MoilDev. 
+
 -----------------------------------------------------------------------------------------------------------------------------
 dll.hpp
 ```
