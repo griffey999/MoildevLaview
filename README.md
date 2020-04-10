@@ -51,8 +51,8 @@ extern "C" DLL_API  void trnToPano(int32_t rows, int32_t cols, int32_t *data);
 #include <time.h>
 #include <iostream>
 #include <fstream>
-
 #include "moildev.h"
+
 using namespace std;
 using namespace cv;
 
@@ -72,7 +72,7 @@ public:
 private:
 
 	Moildev *md;
-	Mat image_input, image_result;
+	Mat image_input, temp;
 	Mat mapX[1], mapY[1];
 	double m_ratio;
 	int x_base = 80;
@@ -90,7 +90,6 @@ private:
 	void MatWrite(const string& filename, const Mat& mat);
 	Mat MatRead(const string& filename);
 	void freeMemory();
-
 };
 
 ```
@@ -108,12 +107,12 @@ Panorama::Panorama()
 	md = new Moildev();
 }
 
-_declspec(dllexport) extern void trnToPano(int32_t rows , int32_t cols, int32_t *data)
-{
+_declspec(dllexport) extern void trnToPano(int32_t rows , int32_t cols, int32_t *data) {
 	Panorama *p;
 	p = new Panorama();
 	p->Show(rows,cols,(unsigned char *)data);
 }
+
 unsigned char * Panorama::Show(int rows, int cols, unsigned char *data) {
 	// Socinext 
 	md->Config("Pano", 1.14, 1.69,
@@ -122,7 +121,7 @@ unsigned char * Panorama::Show(int rows, int cols, unsigned char *data) {
 		0, 0, 0, -15.92, 31.34, 140.48
 	);
 	image_input = cv::Mat(rows, cols, CV_8UC3, &data[0]);
-	image_result = cv::Mat(rows, cols, CV_8UC3, &data[0]);
+	temp = cv::Mat(rows, cols, CV_8UC3, &data[0]);
 	double w = image_input.cols = cols;
 	double h = image_input.rows = rows;
 	double calibrationWidth = md->getImageWidth();
@@ -135,57 +134,14 @@ unsigned char * Panorama::Show(int rows, int cols, unsigned char *data) {
 	clock_t tStart = clock();
 	char str_x[12], str_y[12];
 	int i = 0;
-	/*
-	if (MAP_CACHE_ENABLED) {
-
-		bool map_exist = true;
-
-		while (map_exist && (i < 7)) {
-			i = 6;
-			sprintf(str_x, "matX%d", i); sprintf(str_y, "matY%d", i);
-			if (!fopen(str_x, "r") || !fopen(str_y, "r"))
-				map_exist = false;
-			i++;
-		}
-		if (map_exist) {
-			int i = 6;
-			sprintf(str_x, "matX%d", i); sprintf(str_y, "matY%d", i);
-			mapX[0] = MatRead(str_x);
-			mapY[0] = MatRead(str_y);
-		}
-		else {
-			md->PanoramaM((float *)mapX[0].data, (float *)mapY[0].data, mapX[0].cols, mapX[0].rows, m_ratio, 90);   // panorama
-			int i = 6;
-			sprintf(str_x, "matX%d", i); sprintf(str_y, "matY%d", i);
-			MatWrite(str_x, mapX[0]);
-			MatWrite(str_y, mapY[0]);
-		}
-	}
-	else {
-	*/
-		md->PanoramaM((float *)mapX[0].data, (float *)mapY[0].data, mapX[0].cols, mapX[0].rows, m_ratio, 90);   // panorama
-/*	}*/
-
-//	Vec3b p(0, 0, 0);
-//	image_input.at<Vec3b>(0, 0) = p;
-//	if (image_input.empty()) {
-//		cout << "time out 1: " << endl;
-//		return -1;
-//	}
-	remap(image_result , image_input , mapX[0], mapY[0], INTER_CUBIC, BORDER_CONSTANT, Scalar(0, 0, 0));
-	//cv::resize(image_result, image_display[0], Size(width_split * 3, height_split * 2));
-	//namedWindow("Panorama", CV_WINDOW_NORMAL);
-	//imshow("Panorama", image_result);
-	//image_result.copyTo(image_input);
+	md->PanoramaM((float *)mapX[0].data, (float *)mapY[0].data, mapX[0].cols, mapX[0].rows, m_ratio, 90);   
+	remap(temp , image_input , mapX[0], mapY[0], INTER_CUBIC, BORDER_CONSTANT, Scalar(0, 0, 0));
 	double time_clock = (double)(clock() - tStart) / CLOCKS_PER_SEC;
-	cout << "Version 4 " << endl;
 	cout << "time: " << time_clock << endl;
-
-	
 }
 ```
 
------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------
 4. Laview setup to call the dll : 
 
 The Laview dll application is as below (Connectivity->Libraries & Executables->Call Library Function Node) :
@@ -196,3 +152,7 @@ The parameter setting is as below :
 ![](https://github.com/griffey999/MoildevLaview/blob/master/image/laview3.png)
 The parameter setting is as below :(Please make sure below setting is correct) 
 ![](https://github.com/griffey999/MoildevLaview/blob/master/image/laview4.png)
+
+---------------------------------------------------------------------------------------------------------------------------
+5. For more information about MoilDev , please refer below link : 
+https://github.com/griffey999/test0219
