@@ -13,7 +13,7 @@ How to implemnt MoilDev's on Laview system is a big problem. This description wi
 -----------------------------------------------------------------------------------------------------------------------------
 1. Development environment
 
-1.1 Laview : For Laview , For general complicant for future developing , we choose 32-bit version because most device drivers are supported for 32-bit driver, 64-bit is few. 
+1.1 For Laview , For general complicant for future developing , we choose 32-bit version because most device drivers are supported for 32-bit driver, 64-bit is few. 
 
 1.2 Visual studio and opencv: In order ro develop with Laview 32-bit version, we need to install visual studio c++ package and opencv which could come out 32-bit (x86) DLL to link with Laview. After survey , we find that the visual studio could be 2017 and opencv is ver2.4.13.6 . 
 
@@ -24,5 +24,23 @@ Please refer to below link .
 https://jason-chen-1992.weebly.com/home/install-visual-studio-2017-with-opencv-on-win10
 
 -----------------------------------------------------------------------------------------------------------------------------
-3. API developing : 
+3. Visual studio DLL developing: 
 
+To communicate between MoilDev and Laview is our target. Providing MoilDev's DLL to Laview a simple way to achieve this goal. But Laview is a graphic software package and is not easy to operate MoilDev's dll to implement our target. It means we need to develop a simple API (dll)which could achieve two conditions: 
+1. The dll function need to meet Laview's library calling format.
+2. The dll function need to complete all the panorama actions. 
+So let's go . 
+-----------------------------------------------------------------------------------------------------------------------------
+dll.hpp
+```
+```
+dll.cpp
+```
+```
+
+-----------------------------------------------------------------------------------------------------------------------------
+4. Laview setup to call the dll : 
+
+The Laview setup is as below :
+
+The parameter setting is as below :
