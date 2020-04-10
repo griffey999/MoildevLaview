@@ -62,33 +62,15 @@ namespace Ui {
 
 class Panorama
 {
-
 public:
 	Panorama();
 	unsigned char * Show(int rows, int cols, unsigned char *data);
 	~Panorama();
-
-
 private:
-
 	Moildev *md;
 	Mat image_input, temp;
 	Mat mapX[1], mapY[1];
 	double m_ratio;
-	int x_base = 80;
-	int y_base = 30;
-	int fix_width = 2592;
-	int fix_height = 1944;
-	int currCh = 0, prevCh = 0;
-
-	int width_split = (1920 - 100) / 3;
-	int height_split = width_split * 3 / 4;
-
-	enum class MediaType { NONE, IMAGE_FILE, CAMERA, VIDEO_FILE };
-	MediaType mediaType = MediaType::NONE;
-	void DisplayCh(int Ch);
-	void MatWrite(const string& filename, const Mat& mat);
-	Mat MatRead(const string& filename);
 	void freeMemory();
 };
 
@@ -119,20 +101,15 @@ unsigned char * Panorama::Show(int rows, int cols, unsigned char *data) {
 		1920, 1440, 3.00,
 		0, 0, 0, -15.92, 31.34, 140.48
 	);
+	clock_t tStart = clock();
 	image_input = cv::Mat(rows, cols, CV_8UC3, &data[0]);
 	temp = cv::Mat(rows, cols, CV_8UC3, &data[0]);
 	double w = image_input.cols = cols;
 	double h = image_input.rows = rows;
 	double calibrationWidth = md->getImageWidth();
-	double iCy = md->getiCy();
-	ConfigData *cd = md->getcd();
-	MediaType mediaType = MediaType::IMAGE_FILE;
 	mapX[0] = Mat(h, w, CV_32F);
 	mapY[0] = Mat(h, w, CV_32F);
 	m_ratio = w / calibrationWidth;
-	clock_t tStart = clock();
-	char str_x[12], str_y[12];
-	int i = 0;
 	md->PanoramaM((float *)mapX[0].data, (float *)mapY[0].data, mapX[0].cols, mapX[0].rows, m_ratio, 90);   
 	remap(temp , image_input , mapX[0], mapY[0], INTER_CUBIC, BORDER_CONSTANT, Scalar(0, 0, 0));
 	double time_clock = (double)(clock() - tStart) / CLOCKS_PER_SEC;
