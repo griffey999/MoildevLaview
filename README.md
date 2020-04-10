@@ -1,4 +1,4 @@
-MoildevLaview
+# MoildevLaview
 ============================================================================================================================
 
 MoilDev and Laview description
@@ -11,20 +11,20 @@ How to implemnt MoilDev's on Laview system is a big problem. This description wi
 ![](https://github.com/griffey999/MoildevLaview/blob/master/image/final.png)
 
 -----------------------------------------------------------------------------------------------------------------------------
-1. Development environment
+## 1. Development environment
 
-*1.1 Laview : For general compatible for future developing , we choose 32-bit version because most device drivers are supported for 32-bit, 64-bit is few. 
+1.1 Laview : For general compatible for future developing , we choose 32-bit version because most device drivers are supported for 32-bit, 64-bit is few. 
 
-*1.2 Visual studio and opencv: In order ro develop with Laview 32-bit version, we need to install visual studio c++ package and opencv which could come out 32-bit (x86) DLL to link with Laview. After survey , the visual studio could be 2017 and opencv is ver2.4.13.6 . 
+1.2 Visual studio and opencv: In order ro develop with Laview 32-bit version, we need to install visual studio c++ package and opencv which could come out 32-bit (x86) DLL to link with Laview. After survey , the visual studio could be 2017 and opencv is ver2.4.13.6 . 
 
 -----------------------------------------------------------------------------------------------------------------------------
-2. Visual studio c++ and opencv installation.
+## 2. Visual studio c++ and opencv installation.
 
 Please refer to below link . 
 https://jason-chen-1992.weebly.com/home/install-visual-studio-2017-with-opencv-on-win10
 
 -----------------------------------------------------------------------------------------------------------------------------
-3. Visual studio DLL developing: 
+## 3. Visual studio DLL developing: 
 
 We want to use Laview to pass a fisheye image to MoilDev and get a panoramr image back. Providing MoilDev's DLL to Laview seems a simple way to achieve this goal. But Laview is a graphic software package and is not easy to operate each functions of MoilDev's lib (like c++ enviroment to calll the functions) to reach our goal. It means we need to develop a simple API (dll) which could achieve two conditions: 
 1. The dll function need to be simple and meet Laview's library calling format.
@@ -118,7 +118,7 @@ unsigned char * Panorama::Show(int rows, int cols, unsigned char *data) {
 ```
 
 ---------------------------------------------------------------------------------------------------------------------------
-4. Laview setup to call the dll : 
+## 4. Laview setup to call the dll : 
 
 The Laview dll application is as below (Connectivity->Libraries & Executables->Call Library Function Node) :
 ![](https://github.com/griffey999/MoildevLaview/blob/master/image/laview1.png)
@@ -130,5 +130,5 @@ The parameter setting is as below :(Please make sure below setting is correct)
 ![](https://github.com/griffey999/MoildevLaview/blob/master/image/laview4.png)
 
 ---------------------------------------------------------------------------------------------------------------------------
-5. For more information about MoilDev , please refer below link : 
+## 5. For more information about MoilDev , please refer below link : 
 https://github.com/griffey999/test0219
