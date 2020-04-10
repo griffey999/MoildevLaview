@@ -41,9 +41,11 @@ dll.cpp
 -----------------------------------------------------------------------------------------------------------------------------
 4. Laview setup to call the dll : 
 
-The Laview setup is as below :
+The Laview dll application is as below (Connectivity->Libraries & Executables->Call Library Function Node) :
 ![](https://github.com/griffey999/MoildevLaview/blob/master/image/laview1.png)
-The parameter setting is as below :
+The function etting is as below :
 ![](https://github.com/griffey999/MoildevLaview/blob/master/image/laview2.png)
+The parameter setting is as below : 
 ![](https://github.com/griffey999/MoildevLaview/blob/master/image/laview3.png)
+The parameter setting is as below :(Please make sure below setting is correct) 
 ![](https://github.com/griffey999/MoildevLaview/blob/master/image/laview4.png)
