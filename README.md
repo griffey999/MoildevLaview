@@ -114,7 +114,6 @@ _declspec(dllexport) extern void trnToPano(int32_t rows , int32_t cols, int32_t 
 }
 
 unsigned char * Panorama::Show(int rows, int cols, unsigned char *data) {
-	// Socinext 
 	md->Config("Pano", 1.14, 1.69,
 		950.0, 744.0, 1.48,
 		1920, 1440, 3.00,
