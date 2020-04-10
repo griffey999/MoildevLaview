@@ -42,5 +42,8 @@ dll.cpp
 4. Laview setup to call the dll : 
 
 The Laview setup is as below :
-
+![](https://github.com/griffey999/MoildevLaview/blob/master/image/laview1.png)
 The parameter setting is as below :
+![](https://github.com/griffey999/MoildevLaview/blob/master/image/laview2.png)
+![](https://github.com/griffey999/MoildevLaview/blob/master/image/laview3.png)
+![](https://github.com/griffey999/MoildevLaview/blob/master/image/laview4.png)
