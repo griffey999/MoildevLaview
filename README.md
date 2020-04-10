@@ -33,9 +33,70 @@ We want to use Laview to pass a fisheye image to MoilDev and get a panoramr imag
 -----------------------------------------------------------------------------------------------------------------------------
 dll.hpp
 ```
+#pragma once
+#include<iostream>
+#ifdef DLL_IMPLEMENT
+#define DLL_API _declspec(dllimport)
+#else
+#define DLL_API _declspec(dllexport)
+#endif
+//extern "C" DLL_API   void add2(int rows, int cols, unsigned __int8 *data);
+//extern "C" DLL_API  unsigned char *add2(int rows, int cols, unsigned char *data);
+extern "C" DLL_API  void trnToPano(int32_t rows, int32_t cols, int32_t *data);
+extern "C" DLL_API  int ImgdatatoLabview(unsigned __int8 *imgdata);
+extern "C" DLL_API  int getimagesize(int* rows, int* cols); 
+
+
+#ifndef MOILVIEW_H
+#define MOILVIEW_H
+#include <stdio.h>
+#include <string.h>
+#include <opencv2/opencv.hpp>
+#include <sstream>
+#include <string>
+#include <time.h>
+#include <iostream>
+#include <fstream>
 ```
 dll.cpp
 ```
+#define MAP_CACHE_ENABLED false
+
+#include "dllTest.h"
+#include <opencv2/core/core.hpp>
+#include <opencv2/highgui/highgui.hpp>
+
+using namespace std;
+using namespace cv;
+
+Panorama::Panorama()
+{
+	md = new Moildev();
+}
+
+//_declspec(dllexport) extern void add2(int rows, int cols, unsigned __int8 *data)
+_declspec(dllexport) extern void trnToPano(int32_t rows , int32_t cols, int32_t *data)
+{
+//	String imgPath = "x:\\elp_right.jpg";
+//	Mat image = imread(imgPath, CV_LOAD_IMAGE_COLOR);
+
+	Panorama *p;
+	p = new Panorama();
+	p->Show(rows,cols,(unsigned char *)data);
+	/*
+	cv::Mat image_input(rows, cols, CV_8UC3, &data[0]);
+	image_input.cols = cols;
+	image_input.rows = rows;
+	if(!image_input.data) {
+		cout << "Can't load the image" << std::endl;
+		return ;
+	}
+	namedWindow("Display", CV_WINDOW_NORMAL);
+	imshow("Display", image_input);
+	*/
+//	waitKey(0);
+//	return ;
+}
 ```
 
 -----------------------------------------------------------------------------------------------------------------------------
