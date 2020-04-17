@@ -113,7 +113,11 @@ unsigned char * Panorama::Show(int rows, int cols, unsigned char *data) {
 }
 ```
 
-## 4. Laview setup to call the dll : 
+## 4. Laview Block diagram :
+
+![](https://github.com/griffey999/MoildevLaview/blob/master/image/laview5.png)
+
+## 5. Laview setup to call the dll : 
 
 The Laview dll application is as below (Connectivity->Libraries & Executables->Call Library Function Node) :
 ![](https://github.com/griffey999/MoildevLaview/blob/master/image/laview1.png)
@@ -127,5 +131,9 @@ The parameter setting is as below :
 The parameter setting is as below :(Please make sure below setting is correct) 
 ![](https://github.com/griffey999/MoildevLaview/blob/master/image/laview4.png)
 
-## 5. For more information about MoilDev , please refer below link : 
+## 6. Laview output:
+
+![](https://github.com/griffey999/MoildevLaview/blob/master/image/laview6.png)
+
+## 7. For more information about MoilDev , please refer below link : 
 https://github.com/griffey999/test0219
