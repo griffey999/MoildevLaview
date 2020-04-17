@@ -37,7 +37,7 @@ The code in dll.h
 #define DLL_API _declspec(dllexport)
 #endif
 
-extern "C" DLL_API  void trnToPano(int32_t rows, int32_t cols, int32_t *data);
+extern "C" DLL_API  void trnToPano(unsigned __int16 rows, unsigned __int16 cols,unsigned __int8 *data);
 
 #include <stdio.h>
 #include <string.h>
@@ -60,7 +60,7 @@ class Panorama
 {
 public:
 	Panorama();
-	unsigned char * Show(int rows, int cols, unsigned char *data);
+	unsigned char * Show(int rows, int cols, unsigned __int8 *data);
 	~Panorama();
 private:
 	Moildev *md;
@@ -85,13 +85,15 @@ Panorama::Panorama()
 	md = new Moildev();
 }
 
-_declspec(dllexport) extern void trnToPano(int32_t rows , int32_t cols, int32_t *data) {
+_declspec(dllexport) extern void trnToPano(unsigned __int16 rows, unsigned __int16 cols, unsigned __int8 *data)
+{
 	Panorama *p;
 	p = new Panorama();
-	p->Show(rows,cols,(unsigned char *)data);
+	p->Show(rows,cols,(unsigned __int8 *)data);
 }
 
-unsigned char * Panorama::Show(int rows, int cols, unsigned char *data) {
+unsigned char * Panorama::Show(int rows, int cols, unsigned __int8 *data) 
+{
 	md->Config("Pano", 1.14, 1.69,
 		950.0, 744.0, 1.48,
 		1920, 1440, 3.00,
