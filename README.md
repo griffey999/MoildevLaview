@@ -115,7 +115,7 @@ unsigned char * Panorama::Show(int rows, int cols, unsigned __int8 *data)
 }
 ```
 
-## 4. Laview Block diagram :
+## 4. Laview Block Diagram :
 
 ![](https://github.com/griffey999/MoildevLaview/blob/master/image/laview5.png)
 
