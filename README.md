@@ -89,7 +89,7 @@ _declspec(dllexport) extern void trnToPano(unsigned __int16 rows, unsigned __int
 {
 	Panorama *p;
 	p = new Panorama();
-	p->Show(rows,cols,(unsigned char *)data);
+	p->Show(rows,cols,(unsigned __int8 *)data);
 }
 
 unsigned char * Panorama::Show(int rows, int cols, unsigned __int8 *data) 
