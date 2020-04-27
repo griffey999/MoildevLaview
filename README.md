@@ -130,7 +130,7 @@ The function setting is as below :
 The parameter setting is as below : 
 ![](https://github.com/griffey999/MoildevLaview/blob/master/image/laview3.png)
 
-The parameter setting is as below :(Please make sure below setting is correct) 
+The parameter setting is as below :(Please make sure below setting is the same as dll) 
 ![](https://github.com/griffey999/MoildevLaview/blob/master/image/laview4.png)
 
 ## 6. Laview output:
