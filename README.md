@@ -89,7 +89,7 @@ _declspec(dllexport) extern void trnToPano(unsigned __int16 rows, unsigned __int
 {
 	Panorama *p;
 	p = new Panorama();
-	p->Show(rows,cols,(unsigned __int8 *)data);
+	p->Show(rows,cols,(unsigned char *)data);
 }
 
 unsigned char * Panorama::Show(int rows, int cols, unsigned __int8 *data) 
@@ -100,8 +100,8 @@ unsigned char * Panorama::Show(int rows, int cols, unsigned __int8 *data)
 		0, 0, 0, -15.92, 31.34, 140.48
 	);
 	clock_t tStart = clock();
-	image_input = cv::Mat(rows, cols, CV_8UC3, &data[0]);
-	temp = cv::Mat(rows, cols, CV_8UC3, &data[0]);
+	image_input = cv::Mat(rows, cols, CV_8U, &data[0]);
+	temp = cv::Mat(rows, cols, CV_8U, &data[0]);
 	double w = image_input.cols = cols;
 	double h = image_input.rows = rows;
 	double calibrationWidth = md->getImageWidth();
